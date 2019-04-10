@@ -37,7 +37,7 @@ function removeAllButtons(){
 //Creating a function that displays all gifs
 function displayGifs(){
     var action = $(this).attr("data-name");
-    var queryURL = "https://developers.giphy.com/dashboard/" + action + "&api_key=7T56bSapNnlCzh00VrOl4VyWIR9aCrm7";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + action + "&api_key=7T56bSapNnlCzh00VrOl4VyWIR9aCrm7";
     console.log(queryURL);
     $.ajax({
         url: queryURL,
@@ -77,7 +77,7 @@ removeAllButtons;
 
 $(document).on("click", ".action", displayGifs);
 $(document).on("click", ".image", function(){
-    var state = $(this.attr('data-state');
+    var state = $(this.attr('data-state'));
     if( state == 'still'){
         $(this).attr('src', $(this).data('animate'));
         $(this).attr('data-state', 'animate');
